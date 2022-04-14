@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 
+        'unsafe-inline' data: gap: https://code.jquery.com https://ssl.gstatic.com 
+        https://apisandbox.openbankproject.com 'unsafe-eval'; style-src 'self' 
+        code.jquery.com 'unsafe-inline'; media-src *; img-src 'self' 
+        code.jquery.com data: content:;" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&display=swap" rel="stylesheet" />
+    <title>Qui-fi</title>
+    <!-- <link rel="stylesheet" type="text/css" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js" id="cordova-jquery"></script>
+    <script type="text/javascript" src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+    <div class="app" style="font-family: 'PT Sans Narrow', sans-serif">
+        <div id="deviceready">
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="./img/lightning.png" alt="" width="30" height="24"
+                            class="d-inline-block align-text-top" />
+                        Qui-fi
+                    </a>
+                    <span class="navbar-text">
+                        <p id="logoutBtn"></p>
+                      </span>
+                </div>
+            </nav>
+
+            <div data-role="page" class="container-fluid" id="page1">
+
+                <div data-role="main" class="ui-content">
+                    <div class="card text-center" id="loginData">
+                        <div class="card-header"> Quickest financing Solution</div>
+                        <div class="card-body">
+                            <h2 class="card-title"><b>QUI - fi</b> </h2>
+                            <img src="./img/lightning.png" class="img-thumbnail">
+                            <p class="card-text">
+                                Login to see the wonders in finTech
+                            </p>
+                            <div class="mb-3 row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                                <div class="col-sm-10">
+
+                                    <input type="email" class="form-control" id="username"
+                                        placeholder="name@example.com">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="password">
+                                </div>
+                            </div>
+
+                            <p id="loginbutton"></p>
+                        </div>
+                        <div class="card-footer text-muted">Made to be simple</div>
+                    </div>
+                    <div id="allButtons" class="col-12">
+                        <button class="btn btn-outline-dark" id="bankData">
+                            All Banks
+                        </button>
+                        <button class="btn btn-outline-dark" id="databutton">
+                            My Banks
+                        </button>
+                        <p id="loginp"></p>
+                        <p id="msg"></p>
+                    </div>
+                    <div id="tableData">
+                        <table class="table table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Short Name</th>
+                                    <th>ID</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebody">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
