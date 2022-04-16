@@ -1,4 +1,5 @@
 
+
 document.addEventListener("deviceready", onDeviceReady, false);
 var token;
 
@@ -9,13 +10,15 @@ function onDeviceReady() {
     showlogin();
     $("#tableData").hide();
     $("#allButtons").hide();
-    // $("#logoutBtn").hide();
+    $("#fxData").hide();
     
 
     // document.getElementById("loginbutton").addEventListener("click", loginOBP);
     document.getElementById("databutton").addEventListener("click", queryMyAccounts);
     document.getElementById("bankData").addEventListener("click", getBanks);
-    // document.getElementById("logoutBtn").addEventListener("click",logout)
+
+    document.getElementById("fxBtn").addEventListener("click",getFx);
+    document.getElementById("getRate").addEventListener("click",getRate);
 }
 const showlogin = () => {
     $("#loginbutton").append(
@@ -342,3 +345,47 @@ const myTransactions = (data) => {
 const output_bank = (b) => {
     console.log("Bank ID: " + b);
 }
+const getRate = () => {
+    var a = document.getElementById("cur1").value;
+    var b = document.getElementById("cur2").value;
+
+    // var cur1 = $("#cur1").val ;
+    // var cur2 = $("#cur2").val;
+    console.log("Performing get Fx Rates");
+    $.ajax({
+        url: "https://apisandbox.openbankproject.com/obp/v4.0.0/banks/rbs/fx/"+a+"/"+b,
+        type: "GET",
+        dataType: "json",
+        crossDomain: true,
+        cache: false,
+        contentType: "application/json; charset=utf-8",
+
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "DirectLogin token=" + token);
+        },
+
+        success: function (data, textStatus, jQxhr) {
+            console.log("in query success");
+            console.log(data);
+            $("#tablebody").empty();
+            $("#tableData").hide();
+            $("#displayRate").empty();
+            $("#displayRate").append(
+                "<p>"+data.conversion_value+"&nbsp"+b+"</p>"
+            );
+
+            // data.banks.forEach(showBanks);
+        },
+
+        error: function (jqXhr, textStatus, errorThrown) {
+            console.log("in query error");
+        },
+    }); 
+}
+const getFx = () => {
+    $("#tablebody").empty();
+            $("tabledata").hide();
+            $("#fxData").show();
+
+}
+//C:\Users\surya\Downloads\checkpoint8\checkpoint8\www
