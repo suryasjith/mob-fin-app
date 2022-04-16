@@ -73,6 +73,8 @@
                         </button>
                         <button class="btn btn-outline-dark" id="databutton">
                             My Banks
+                        </button> <button class="btn btn-outline-dark" id="fxBtn">
+                           Exchange Rates
                         </button>
                         <p id="loginp"></p>
                         <p id="msg"></p>
@@ -90,6 +92,32 @@
 
                             </tbody>
                         </table>
+                    </div>
+                    <div id="fxData">
+                        <select class="form-select" size="3" aria-label="size 3 select example" id="cur1">
+                            <option selected>Select a Currency</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="INR">INR</option>
+                          </select>
+                          <select class="form-select" size="3" aria-label="size 3 select example" id="cur2">
+                            <option selected>Select a currency</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="INR">INR</option>
+                          </select>
+                          <button class="btn btn-outline-dark" id="getRate"> Get Fx Rate</button>
+                          <div class="card">
+                            <div class="card-header">
+                              Rate
+                            </div>
+                            <div class="card-body">
+                              <blockquote class="blockquote mb-0">
+                                <div id="displayRate"></div>
+                                <footer class="blockquote-footer">Today's Rate <cite title="Source Title">UK</cite></footer>
+                              </blockquote>
+                            </div>
+                          </div>
                     </div>
                 </div>
             </div>
